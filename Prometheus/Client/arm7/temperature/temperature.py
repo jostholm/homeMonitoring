@@ -13,7 +13,10 @@ if __name__ == '__main__':
 
 while True:
   with open('/home/jostholm/Prometheus/temperature/temp_measure.txt', 'r') as g:
-    temperature = g.readline()
+    try:
+        temperature = g.readline()
+    except:
+        temperature = temperature
 
     pi_temperature.labels(location2).set(temperature)
     time.sleep(UPDATE_PERIOD)
