@@ -1,0 +1,10 @@
+[Unit]
+Description=Temperature Logger
+After=multi-user.target
+
+[Service]
+User=jostholm
+ExecStart=/home/jostholm/prometheus-2.26.0.linux-armv7/temperature/measure_temp.sh
+
+[Install]
+WantedBy=multi-user.target
