@@ -13,5 +13,5 @@ while True:
   with open('/home/jostholm/Prometheus/temperature/temp_measure.txt', 'r') as g:
     temperature = g.readline()
 
-pi_temperature.labels('miningPi').set(temperature)
-time.sleep(UPDATE_PERIOD)
+    pi_temperature.labels('miningPi').set(temperature)
+    time.sleep(UPDATE_PERIOD)
