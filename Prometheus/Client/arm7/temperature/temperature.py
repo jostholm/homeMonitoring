@@ -17,8 +17,6 @@ if __name__ == '__main__':
 
 while True:
     temperature = subprocess.check_output(temp_cmd, shell=True)
-    temperature.decode("utf-8")
-
     pi_temperature.labels(location.returned_output.decode("utf-8")).set(temperature.decode("utf-8"))
 
     time.sleep(UPDATE_PERIOD)
