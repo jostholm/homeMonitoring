@@ -1,0 +1,20 @@
+
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=jostholm
+Group=jostholm
+Type=simple
+ExecStart=/home/jostholm/prometheus/prometheus \
+    --config.file=/home/jostholm/prometheus/prometheus.yml \
+    --storage.tsdb.path=/home/jostholm/prometheus/data \
+    --web.console.templates=/home/jostholm/prometheus/consoles \
+    --web.console.libraries=/home/jostholm/prometheus/console_libraries
+
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Temperature Exporter
+After=multi-user.target
+
+[Service]
+User=jostholm
+ExecStart=/home/jostholm/anaconda3/bin/python3.8 /home/jostholm/prometheus/temperature/temperature.py
+
+[Install]
+WantedBy=multi-user.target
