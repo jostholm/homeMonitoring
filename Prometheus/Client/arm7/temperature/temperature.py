@@ -15,9 +15,9 @@ while True:
 
     try:
         pi_temperature.labels(location).set(temperature)
-        print('temperature=' +temperature)
+        print('temperature=' + str(temperature))
         print('hostname=' +location)
     except:
-        print('something went wrong with' + temperature)
+        print('something went wrong with' + str(temperature))
 
     time.sleep(UPDATE_PERIOD)
