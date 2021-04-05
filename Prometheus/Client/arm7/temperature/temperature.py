@@ -7,7 +7,7 @@ UPDATE_PERIOD = 15
 temp_cmd = "vcgencmd measure_temp|grep -o -E '[0-9]+\.[0-9]'"
 location_cmd = "hostname"
 location = subprocess.check_output(location_cmd)
-location = location.returned_output.decode("utf-8")
+
 
 
 pi_temperature = prometheus_client.Gauge('system_temperature_celsius','temperature of system in degrees celsius',['location'])
@@ -17,8 +17,8 @@ if __name__ == '__main__':
 
 while True:
     temperature = subprocess.check_output(temp_cmd, shell=True)
-    temperature = temperature.decode("utf-8")
+    temperature.decode("utf-8")
 
-    pi_temperature.labels(location).set(temperature)
+    pi_temperature.labels(location.returned_output.decode("utf-8")).set(temperature.decode("utf-8"))
 
     time.sleep(UPDATE_PERIOD)
