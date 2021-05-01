@@ -8,6 +8,7 @@ Metrics are collected through
  2. Fibaro Wall Plug - power consumption
  3. Temperature - Analogue Sensors TMP36 TO92 and Internal Raspberry Pi measurements
  
-The metrics are read and exported by two separate exporters, the CGMiner_API_exporter.py and MiningTemperature_exporter.py.
+The metrics are read and exported by two separate exporters running on the RaspberryPi (miningPi), the CGMiner_API_exporter.py and MiningTemperature_exporter.py.
+The power consumption is exported from the Wall Plug through the Prometheus.io exporter running on Ahtom Homey.
 
 Ohh and BTW, this is a total n00b project :)
