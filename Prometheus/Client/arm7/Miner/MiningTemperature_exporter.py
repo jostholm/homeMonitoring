@@ -1,4 +1,4 @@
-#followed instructions from https://leanpub.com/rpcmonitor/read
+#followed instructions from https://leanpub.com/rpcmonitor/read, rember <pip install prometheus_client>
 #Additional resources for mcp 3008: https://learn.adafruit.com/raspberry-pi-analog-to-digital-converters/mcp3008
 # https://github.com/adafruit/Adafruit_CircuitPython_MCP3xxx/
 #This python script is run by the temp_exporter.service which should also be defined.
