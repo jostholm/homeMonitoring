@@ -1,4 +1,4 @@
-
+#create file in /etc/systemd/system/prometheus.service
 [Unit]
 Description=Prometheus
 Wants=network-online.target
