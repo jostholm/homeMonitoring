@@ -1,3 +1,4 @@
+#this file goes into /etc/systemd/system/temp_exporter.service
 [Unit]
 Description=Temperature Exporter
 After=multi-user.target
