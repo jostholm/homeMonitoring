@@ -1,0 +1,41 @@
+#The goal of this script is to be able to recreate the serverPI Raspberry Pi after OS re-installation
+
+#Set the network host name to serverPI
+echo "serverPI" > /etc/hostname
+echo "127.0.1.1	serverPi" >> /etc/hosts
+
+#set up user account
+#create jostholm
+#restrict the original user account
+
+
+
+#Prometheus Server
+mkdir ~/prometheus/install && cd ~/prometheus/install
+curl -JLO https://github.com/prometheus/prometheus/releases/download/v2.37.2/prometheus-2.37.2.linux-armv7.tar.gz
+tar -xzf prometheus-2.37.2.linux-armv7.tar.gz 
+rm prometheus-2.37.2.linux-armv7.tar.gz
+cd prometheus-2.37.2.linux-armv7
+curl -JLO https://raw.githubusercontent.com/jostholm/homeMonitoring/main/Prometheus/Server/arm7/prometheus.service
+cp ./prometheus.service /etc/systemd/system/
+mv prometheus.yml old_prometheus.yml
+curl -JLO https://raw.githubusercontent.com/jostholm/homeMonitoring/main/Prometheus/Server/arm7/prometheus.yml
+
+#Prometheus Node Exporters
+mkdir ~/prometheus/node_exporter/ && cd ~/prometheus/node_exporter/
+curl -JLO https://raw.githubusercontent.com/jostholm/homeMonitoring/main/Prometheus/Client/arm7/Default_Node_Exporter/install_node_exporter.sh
+chmod +x install_node_exporter.sh
+./install_node_exporter.sh
+
+
+
+
+#Grafana
+
+
+
+#Nginx
+
+
+
+
