@@ -8,7 +8,10 @@ echo "127.0.1.1	serverPi" >> /etc/hosts
 #create jostholm
 #restrict the original user account
 
+useradd -m jostholm
 
+#Update
+apt update
 
 #Prometheus Server
 mkdir ~/prometheus/install && cd ~/prometheus/install
@@ -30,12 +33,32 @@ chmod +x install_node_exporter.sh
 
 
 
-#Grafana
+#Grafana - To install the latest Enterprise edition:
+mkdir ~/grafana/ && cd ~/grafana
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+##Add this repository for stable releases:
+echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+##Add this repository if you want beta releases:
+echo "deb https://packages.grafana.com/enterprise/deb beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+##After you add the repository:
+sudo apt-get update
+sudo apt-get install grafana-enterprise
+
+## Configure the grafana server to start with boot
+sudo systemctl daemon-reload
+sudo systemctl enable grafana-server.service
+
 
 
 
 #Nginx
-
-
+sudo apt install nginx
+sudo /etc/init.d/nginx start
+sudo systemctl status nginx
 
 
