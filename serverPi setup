@@ -1,15 +1,5 @@
 #The goal of this script is to be able to recreate the serverPI Raspberry Pi after OS re-installation
 
-#Set the network host name to serverPI
-echo "serverPI" > /etc/hostname
-echo "127.0.1.1	serverPi" >> /etc/hosts
-
-#set up user account
-#create jostholm
-#restrict the original user account
-
-useradd -m jostholm
-
 #Update
 apt update
 
